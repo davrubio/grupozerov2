@@ -13,14 +13,14 @@
 </head>
 
 <body>
-  <header>
+  <header style="margin-bottom:5%;">
     {% include 'fragmentos/navbar.html' %}
   </header>
 
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
         {% for picture in cuadros %}
-            <section id="la_noche_estrellada">
+            <section id={{picture.id_cuadro}}>
                 <div class="row gallery container-fluid text-center">
                     {% if picture.imagen %}
                         <div class="col-xl-6 col-lg-6">

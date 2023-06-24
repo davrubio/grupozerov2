@@ -70,7 +70,7 @@
     </div>
     <div class="art-pictures text-center">
       <h4>Lo más visto</h4>
-      <div class="row ">
+       <div class="row "> <!-------------------------->
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="row">
             <div class="col-12">
@@ -79,14 +79,14 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <img src="img/also-known-as-the-great-wave-the-print-is-from-the-series-news-photo-1676888508.jpg" alt=""
+              <img src="{% static 'tienda/img/starry-night-over-the-rhone-by-vincent-willem-van-gogh-news-photo-1658241462.jpg' %}" alt=""
                 class="img-most-view">
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <!-- <button onclick="window.location.href='galeria.html#la_gran_ola'" class="btn-item">Ver más</button> -->
-              <button #ola id="ola" onclick="redireccionar('la_gran_ola')" class="btn-item">Ver más</button>
+              <button #ola id="ola" onclick="redireccionar('1')" class="btn-item">Ver más</button>
             </div>
           </div>
         </div>
@@ -98,13 +98,13 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <img src="img/edward-hopper-nighthawks-oil-on-canvas-84-1-x-152-4-cm-art-news-photo-1676891191.jpg" alt=""
+              <img src="{% static 'tienda/img/John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project_edit.jpg' %}" alt=""
                 class="img-most-view">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <button onclick="redireccionar('noctambulos')" class="btn-item">Ver más</button>
+              <button onclick="redireccionar('2')" class="btn-item">Ver más</button>
             </div>
           </div>
         </div>
@@ -116,39 +116,60 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <img src="img/the-creation-of-adam-by-michelangelo-is-painted-on-the-news-photo-1652350574.jpg" alt=""
+              <img src="{% static 'tienda/img/la_persistencia_de_la_memoria.jpg' %}" alt=""
                 class="img-most-view">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <button onclick="redireccionar('la_capilla')" class="btn-item">Ver más</button>
+              <button onclick="redireccionar('3')" class="btn-item">Ver más</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="art-pictures text-center">
+
+      <!-- <h1>TEST</h1>
+      <div class="row ">
+        {% for picture in cuadros %}
+        <div class="col">
+          <span class="art-title">
+            {{picture.titulo}} - {{picture.artista}}
+          </span>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <img src="{{picture.imagen.url}}" alt="" class="img-most-new">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      
+
+      <h1>TEST</h1> -->
+
       <h4>Los más nuevo</h4>
-      <div class="row">
+      <div class="row"> <!-------------------------->
+        {% for picture in cuadros %}
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           <div class="row">
             <div class="col">
-              <span class="art-title">ANIMALES FANTÁSTICOS</span>
+              <span class="art-title">{{picture.titulo}} - {{picture.artista}}</span>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <img src="img/masreciente1.webp" alt="" class="img-most-new">
+              <img src="{{picture.imagen.url}}" alt="" class="img-most-new">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <button onclick="redireccionar('animales_fantasticos')" class="btn-item">Ver más</button>
+              <button onclick="redireccionar('{{picture.id_cuadro}}')" class="btn-item">Ver más</button>
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           <div class="row">
             <div class="col-sm-12">
               <span class="art-title">LILITH SOBRE AMARILLO</span>
@@ -194,15 +215,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col"> 
               <button onclick="redireccionar('dia_de_pesca')" class="btn-item">Ver más</button>
             </div>
           </div>
-        </div>
+        </div> -->
+        {% endfor %}
       </div>
     </div>
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -211,7 +232,7 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <script src="redirection.js"></script>
+  <script src="{% static 'tienda/js/redirection.js' %}"></script>
 </body>
 
 </html>
