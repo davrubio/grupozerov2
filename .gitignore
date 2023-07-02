@@ -2,3 +2,4 @@
 .idea
 ./grupozero
 myvenv/pyvenv.cfg
+db.sqlite3
