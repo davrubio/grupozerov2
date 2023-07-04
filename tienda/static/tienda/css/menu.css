@@ -1,0 +1,10 @@
+body {
+    background-image: url(/static/tienda/img/pokemon-ue.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0 auto;
+    color: #333;
+}

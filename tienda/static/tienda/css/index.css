@@ -21,16 +21,7 @@
     font-family: 'Dancing Script';
 }
 
-body {
-    background-image: url(/static/tienda/img/wepik-export-20230506042505ay10.jpeg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
-    margin: 0 auto;
-    color: #333;
-}
+
 
 .carousel-control-next, .carousel-control-prev {
     position: absolute;
