@@ -26,7 +26,8 @@
                     {{ form.as_table }}
                 </div>
             </div>
-            
+
+
             <div class="row p-5">
                 <div class="col d-grid">
                     <button type="submit" class="btn btn-success d-block" id="submit" value="submit">Subir</button>
@@ -37,14 +38,18 @@
             </div>
 
 
-            {% if message %}
+            {% if mensaje %}
+
             <div id="error" class="alert alert-success" role="alert">
-                {{mensaje}}
+                <h1>{{mensaje}}</h1>
             </div>
             {% endif%}
-
+            <div class="col d-grid">
+                <button type="button" class="btn btn-danger d-block" id="volver" value="volver"> <a
+                        href="{% url 'galeria' %} ">Volver a galería</a> </button>
+            </div>
         </form>
-        
+
     </div>
 
 </body>
