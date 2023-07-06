@@ -10,14 +10,14 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'tienda/css/index.css' %}">
     <link rel="icon" href="{% static 'tienda/img/logo_z.PNG' %}">
-    <title>Ingreso de cuadros</title>
+    <title>Ingreso de poster</title>
 </head>
 
 <body>
     <header style="margin-bottom:5%;">
         {% include 'fragmentos/navbar.html' %}
     </header>
-    <h1 class="text-center">Crear Cuadro</h1>
+    <h1 class="text-center">Crear Poster</h1>
     <div class="container-fluid w-75">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}

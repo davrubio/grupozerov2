@@ -10,27 +10,31 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'tienda/css/index.css' %}">
     <link rel="icon" href="{% static 'tienda/img/logo_z.PNG' %}">
-    <title>Ingreso de cuadros</title>
+    <title>Edicion de cuadros</title>
 </head>
 
 <body>
     <header style="margin-bottom:5%;">
         {% include 'fragmentos/navbar.html' %}
     </header>
-    <h1 class="text-center">Crear Cuadro</h1>
+    <h1 class="text-center">Edita el cuadro</h1>
     <div class="container-fluid w-75">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            <div>
+                <h1>
+                    {{src}}
+                </h1>
+            </div>
             <div class="row">
                 <div class="col">
                     {{ form.as_table }}
                 </div>
             </div>
-
-
+            
             <div class="row p-5">
                 <div class="col d-grid">
-                    <button type="submit" class="btn btn-success d-block" id="submit" value="submit">Subir</button>
+                    <button type="submit" class="btn btn-success d-block" id="modificar" value="actualizar">Editar</button>
                 </div>
                 <div class="col d-grid">
                     <button type="reset" class="btn btn-warning d-block" id="reset" value="reset">Reset</button>
@@ -39,19 +43,18 @@
 
 
             {% if mensaje %}
-
             <div id="error" class="alert alert-success" role="alert">
                 <h1>{{mensaje}}</h1>
             </div>
-            {% endif%}
+            {% else %}
             <div class="col d-grid">
-                <button type="button" class="btn btn-danger d-block" id="volver" value="volver"> <a
-                        href="{% url 'galeria' %} ">Volver a galería</a> </button>
+                <button type="button" class="btn btn-danger d-block" id="volver" value="volver"> <a href="{% url 'galeria' %} ">Volver a galería</a> </button>
             </div>
-        </form>
+            {% endif%}
 
+        </form>
     </div>
 
 </body>
-
+<script src="{% static 'tienda/js/cuadrosEdit.js' %}"></script>
 </html>

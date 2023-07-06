@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .forms import CuadroForm
-from tienda.models import Cuadro, Cliente, Pedido, Carrito
+from tienda.models import Cuadro
 import urllib.request
 import json
 
@@ -10,29 +11,7 @@ import json
 #     return render(request, 'tienda/index.html')
 
 
-def poke(request):
-    if request.method == 'POST':
-        pokemon = request.POST['pokemon'].lower()
-        pokemon = pokemon.replace(' ', '%20')
-        url_pokeapi = urllib.request.Request(
-            f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
-        url_pokeapi.add_header('User-Agent', 'charmander')
 
-        source = urllib.request.urlopen(url_pokeapi).read()
-        list_of_data = json.loads(source)
-        # sprites = (list_of_data['sprites'])
-
-        data = {
-            "number": str(list_of_data['id']),
-            "nombre": str(list_of_data['name']),
-            "foto": str(list_of_data['sprites']['front_default']),
-            'form': CuadroForm()
-        }
-        
-    else:
-        data = {}
-
-    return render(request, 'tienda/poster_customer.html', data)
 
 
 def index(request):
@@ -61,6 +40,40 @@ def galeria(request):
     return render(request, 'tienda/galeria.html', context)
 
 
+def carro(request):
+    cuadros = Cuadro.objects.all()
+    context = {
+        'cuadros': cuadros
+    }
+    return render(request, 'tienda/carro.html', context)    
+
+def poke(request):
+    if request.method == 'POST':
+        pokemon = request.POST['pokemon'].lower()
+        pokemon = pokemon.replace(' ', '%20')
+        url_pokeapi = urllib.request.Request(
+            f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
+        url_pokeapi.add_header('User-Agent', 'charmander')
+
+        source = urllib.request.urlopen(url_pokeapi).read()
+        list_of_data = json.loads(source)
+        # sprites = (list_of_data['sprites'])
+
+        data = {
+            "number": str(list_of_data['id']),
+            "nombre": str(list_of_data['name']),
+            "foto": str(list_of_data['sprites']['front_default']),
+            'form': CuadroForm()
+        }
+
+
+        
+    else:
+        data = {}
+
+    return render(request, 'tienda/poster_customer.html', data)    
+
+
 def cuadrosAdd(request):
     context = {
         'form': CuadroForm()
@@ -72,3 +85,38 @@ def cuadrosAdd(request):
             context = {'mensaje': "Cuadro creado correctamente!"}
 
     return render(request, 'tienda/cuadrosAdd.html', context)
+
+def posterAdd(request, nombre, foto, number):
+    context = {
+        'form': CuadroForm(),
+        'nombre': nombre,
+        'foto': foto,
+        'number': number
+    }
+    if request.method == 'POST':
+        form = CuadroForm(request.POST, files=request.FILES)
+        if form.is_valid:
+            form.save()
+            context = {'mensaje': "Poster creado correctamente!"}
+
+    return render(request, 'tienda/posterAdd.html', context)
+
+def cuadrosEdit(request,id):
+    cuadro = Cuadro.objects.get(id_cuadro = id)
+    context = {
+        'form': CuadroForm(instance=cuadro)
+    }
+
+    print({cuadro})
+    if request.method == 'POST':
+        form = CuadroForm(data=request.POST, files=request.FILES, instance=cuadro)
+        if form.is_valid:
+            form.save()
+            context = {'mensaje': "Cuadro editado correctamente!"}
+
+    return render(request, 'tienda/cuadrosEdit.html', context)
+
+def cuadrosDelete(request, id_cuadro):
+    cuadro = Cuadro.objects.get(id_cuadro = id_cuadro)
+    cuadro.delete()
+    return redirect(to='galeria')

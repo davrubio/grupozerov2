@@ -33,24 +33,27 @@
 
         <div>
             <form method="POST">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col">
                         {{ form.as_table }}
                     </div>
                 </div>
-                <button class="btn btn-success" onclick="test()">Cargar Datos</button>
+
             </form>
             {% if number and nombre %}
             <div class="row">
                 <div class="col">
-                    <input id="pokeTitulo" name="pokeTitulo" class="text-black" value="{{nombre}}">{{nombre}}</label>
-                    <input id="pokeArtista" name="pokeArtista" class="text-black" value="{{nombre}}">{{foto}}</label>
-                    <input id="pokeDescripcion" name="pokeDescripcion" class="text-black" value="{{nombre}}">{{nombre}}</label>
-                    <input id="pokePrecio" name="pokePrecio" class="text-black" value="{{number}}">{{number}}</label>
-                    <input id="pokeAnno_creacion" name="pokeAnno_creacion" class="text-black" value="{{number}}">{{foto}}</label>
-                    <input src="{{foto}}" type="file" id="pokeImagen" name="pokeImagen" class="text-black" value="{{foto}}">{{foto}}</label>
+                    <input hidden id="pokeTitulo" name="pokeTitulo" class="text-black" value="{{nombre}}">{{nombre}}</label>
+                    <input hidden id="pokeArtista" name="pokeArtista" class="text-black" value="{{nombre}}">{{foto}}</label>
+                    <input hidden id="pokeDescripcion" name="pokeDescripcion" class="text-black" value="{{nombre}}">{{nombre}}</label>
+                    <input hidden id="pokePrecio" name="pokePrecio" class="text-black" value="{{number}}">{{number}}</label>
+                    <input hidden id="pokeAnno_creacion" name="pokeAnno_creacion" class="text-black" value="{{number}}">{{foto}}</label>
+                    <input hidden src="{{foto}}" type="file" id="pokeImagen" name="pokeImagen" class="text-black" value="{{foto}}">{{foto}}</label>
                     <img name="foto" id="foto" src="{{foto}}">
-                    <button class="btn btn-success" onclick="test22(pokeTitulo, pokeArtista,pokeDescripcion,pokePrecio,pokeAnno_creacion,pokeImagen)">Cargar Datos22</button>
+                    <button class="btn btn-success" onclick="test22(pokeTitulo, pokeArtista,pokeDescripcion,pokePrecio,pokeAnno_creacion,pokeImagen)">Rellenar formulario</button>
+                    <button class="btn btn-success"><a href="{% url 'posterAdd' nombre=nombre foto=foto number=number %}">Ir a poster</a></button>
+
                 </div>
             </div>
             {% else %}
