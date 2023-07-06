@@ -23,10 +23,23 @@
                     <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
             </ul>
-            <div class="form-inline justify-content-end">
-                <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="button"><a href="{% url 'login' %}">Ingresar</a></button> -->
-                <a href="{% url 'login' %}">Ingresar</a>
-            </div>
+            
+            <ul class="navbar-nav justify-content-md-end">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{{user.username}}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'loginCliente' %}">Iniciar Sesión</a>
+                    </li>
+                {% endif %}
+                <!-- <button class="btn btn-dark"><a class="nav-link" href="">usuario</a></button>
+                <button class="btn btn-dark"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></button> -->
+            </ul>
         </div>
     </div>
 </nav>

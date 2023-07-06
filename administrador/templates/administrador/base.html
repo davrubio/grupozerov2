@@ -24,22 +24,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Posters</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {% if user.is_authenticated %}
-                                {{user.username}}
-                            {% else %}
-                                <a href="{% url 'login' %}"></a>
-                            {% endif %}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'salir' %}">Cerrar Sesión</a></li>                        
-                        </ul>
-                    </li>
                 </ul>
-                <!-- <form class="form-inline justify-content-end">
-                    <button onclick="location.href='login.html'" class="btn btn-outline-light my-2 my-sm-0" type="button">Login</button>
-                </form> -->
+                <ul class="navbar-nav justify-content-md-end">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{user.username}}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>

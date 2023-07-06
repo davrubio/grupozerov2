@@ -22,6 +22,7 @@ class Cliente(models.Model):
     fono = models.CharField(max_length=12, null=False)
     correo = models.CharField(max_length=50, null=False)
     direccion = models.CharField(max_length=50, null=False)
+    password = models.CharField(max_length=10, null=False)
     
     def __str__(self):
         return str(self.nombre)+" "+str(self.ap_paterno)
