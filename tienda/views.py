@@ -1,15 +1,9 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-from django.contrib.auth.decorators import login_required
-from .models import Cuadro, Pedido, Carrito
-# from .forms import ClienteForm
-=======
 from django.shortcuts import redirect
 from .forms import CuadroForm
 from tienda.models import Cuadro
 import urllib.request
 import json
->>>>>>> 24099a67da10e52c27a5666efd5e7aed157a1f4a
 
 # Create your views here.
 # def index(request):
@@ -45,23 +39,6 @@ def galeria(request):
     }
     return render(request, 'tienda/galeria.html', context)
 
-<<<<<<< HEAD
-# def loginCliente(request):
-#     return render(request, 'tienda/registrationCliente/loginCliente.html')
-
-# def registroCliente(request):
-#     context = {
-#         'form': ClienteForm()
-#     }
-#     if request.method == 'POST':
-#         formulario = ClienteForm(request.POST)
-#         if formulario.is_valid:
-#             formulario.save()
-#             context = {'mensaje': "Se ha registrado correctamente!"}
-#         else:
-#             context = {'mensaje': "Error en el ingreso de datos"}
-#     return render(request, 'tienda/registrationCliente/registroCliente.html', context)
-=======
 
 def carro(request):
     cuadros = Cuadro.objects.all()
@@ -143,4 +120,3 @@ def cuadrosDelete(request, id_cuadro):
     cuadro = Cuadro.objects.get(id_cuadro = id_cuadro)
     cuadro.delete()
     return redirect(to='galeria')
->>>>>>> 24099a67da10e52c27a5666efd5e7aed157a1f4a
