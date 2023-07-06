@@ -1,0 +1,45 @@
+body {
+    background-image: url(/static/tienda/img/wepik-export-20230506042505ay10.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0 auto;
+    color: #333;
+}
+
+form.user .form-control-user {
+    /* width: 60%; */
+    font-size: .8rem;
+    border-radius: 10rem;
+}
+
+.form-label {
+    width: 70%;
+}
+
+.btn{
+    font-size: .8rem;
+    width: 87%;
+    border-radius: 10rem;
+}
+
+.card{
+    background: rgba(255, 255, 255, 0.5);
+    /* width: 400px;
+    height: 500px; */
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.user {
+    display: contents;
+    align-items: normal;
+    justify-content: center;
+}
