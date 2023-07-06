@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login, authenticate
 from .forms import crearUsuario
+from django.contrib import messages
 
 # Create your views here.
 @login_required
@@ -29,7 +30,8 @@ def registro(request):
             user = authenticate(username=formulario.cleaned_data["username"],
                                 password=formulario.cleaned_data["password1"])
             login(request, user)
-            return redirect("index")
-
+            messages.success(request, "Te has registrado correctamente")
+            return redirect("login")
+        data["form"] = formulario            
     return render(request, 'registration/registro.html', data)
 

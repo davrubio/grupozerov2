@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 
 class crearUsuario(UserCreationForm):
     
-    # username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Username'}))
-    # first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Nombre'}))
-    # last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Apellido'}))
-    # email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Email'}))
-    # password1 = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Contraseña', 'type':"password"}))
-    # password2 = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Repetir contraseña', 'type':"password"}))
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Username'}))
+    first_name = forms.CharField(label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Nombre'}))
+    last_name = forms.CharField(label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Apellido'}))
+    email = forms.CharField(label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Email'}))
+    password1 = forms.CharField(label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Contraseña', 'type':"password"}))
+    password2 = forms.CharField(label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-user', 'placeholder': 'Repetir contraseña', 'type':"password"}))
     
     class Meta:
         model = User

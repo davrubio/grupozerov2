@@ -27,8 +27,8 @@ form.user .form-control-user {
 
 .card{
     background: rgba(255, 255, 255, 0.5);
-    width: 400px;
-    height: 500px;
+    /* width: 400px;
+    height: 500px; */
 }
 
 .abs-center {
