@@ -274,3 +274,10 @@ img{
     padding: 15px 10px;
     cursor: pointer;
 }
+.centerTest{
+    display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
