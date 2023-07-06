@@ -26,9 +26,8 @@ def registro(request):
         formulario = crearUsuario(request.POST)
         if formulario.is_valid():
             formulario.save()
-            username = formulario.cleaned_data['username']
-            password = formulario.cleaned_data['password1']
-            user = authenticate(username = username, password = password)
+            user = authenticate(username=formulario.cleaned_data["username"],
+                                password=formulario.cleaned_data["password1"])
             login(request, user)
             return redirect("index")
 

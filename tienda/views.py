@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Cuadro, Cliente, Pedido, Carrito
-from .forms import ClienteForm
+from .models import Cuadro, Pedido, Carrito
+# from .forms import ClienteForm
 
 # Create your views here.
 # def index(request):
@@ -32,18 +32,18 @@ def galeria(request):
     }
     return render(request, 'tienda/galeria.html', context)
 
-def loginCliente(request):
-    return render(request, 'tienda/registrationCliente/loginCliente.html')
+# def loginCliente(request):
+#     return render(request, 'tienda/registrationCliente/loginCliente.html')
 
-def registroCliente(request):
-    context = {
-        'form': ClienteForm()
-    }
-    if request.method == 'POST':
-        formulario = ClienteForm(request.POST)
-        if formulario.is_valid:
-            formulario.save()
-            context = {'mensaje': "Se ha registrado correctamente!"}
-        else:
-            context = {'mensaje': "Error en el ingreso de datos"}
-    return render(request, 'tienda/registrationCliente/registroCliente.html', context)
+# def registroCliente(request):
+#     context = {
+#         'form': ClienteForm()
+#     }
+#     if request.method == 'POST':
+#         formulario = ClienteForm(request.POST)
+#         if formulario.is_valid:
+#             formulario.save()
+#             context = {'mensaje': "Se ha registrado correctamente!"}
+#         else:
+#             context = {'mensaje': "Error en el ingreso de datos"}
+#     return render(request, 'tienda/registrationCliente/registroCliente.html', context)
