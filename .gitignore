@@ -1,3 +1,6 @@
 .myvenv
 .idea
 ./grupozero
+grupozero/__pycache__
+tienda/migrations/__pycache__/
+tienda/__pycache__/
