@@ -1,11 +1,6 @@
 .myvenv
 .idea
 ./grupozero
-<<<<<<< HEAD
 grupozero/__pycache__
 tienda/migrations/__pycache__/
 tienda/__pycache__/
-=======
-myvenv/pyvenv.cfg
-db.sqlite3
->>>>>>> dav_dev
