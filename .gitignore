@@ -1,5 +1,6 @@
 .myvenv
 .idea
 ./grupozero
-myvenv/pyvenv.cfg
-db.sqlite3
+grupozero/__pycache__
+tienda/migrations/__pycache__/
+tienda/__pycache__/
