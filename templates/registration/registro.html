@@ -21,30 +21,17 @@
                                     <form method="post" class="user form-label ">
                                         {% csrf_token %}
                                         {{ form.as_p }}
-                                        <!-- <label for="user" class="form-label">
-                                            <input type="text" name="{{form.username.name}}" class="form-control form-control-user" placeholder="Username" aria-label="Username">
-                                        </label>
-                                        <label for="user" class="form-label">
-                                            <input type="text" name="{{form.first_name.name}}" class="form-control form-control-user" placeholder="First name" aria-label="Firstname">
-                                        </label>
-                                        <label for="user" class="form-label">
-                                            <input type="text" name="{{form.last_name.name}}" class="form-control form-control-user" placeholder="Last name" aria-label="Lastname">
-                                        </label>
-                                        <label for="user" class="form-label">
-                                            <input type="email" name="{{form.email.name}}" class="form-control form-control-user" placeholder="Email" aria-label="Email">
-                                        </label>
-                                        <label for="user" class="form-label">
-                                            <input type="password" name="{{form.password1.name}}" class="form-control form-control-user" placeholder="Password1" aria-label="Password">
-                                        </label>
-                                        <label for="user" class="form-label">
-                                            <input type="password" name="{{form.password2.name}}" class="form-control form-control-user" placeholder="Password2" aria-label="Password">
-                                        </label> -->
+                                        {% if mensaje %}
+                                            <div id="error" class="alert alert-success" role="alert">
+                                                {{mensaje}}
+                                            </div>
+                                        {% endif %}
                                         <div class="form-group mb-3 btn">
                                             <button type="submit" value="registrar" class="btn btn-success">Registrar</button>
                                         </div>
                                         <div class="mb-3">
-                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0" href="{% url 'index' %}">Volver a la página</a> | 
-                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0" href="{% url 'login' %}">Iniciar sesion</a>
+                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'index' %}">Volver a la página</a> | 
+                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'login' %}">Iniciar sesion</a>
                                         </div>
                                     </form>
                                 </div>

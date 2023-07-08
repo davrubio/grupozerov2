@@ -19,26 +19,28 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4 test">Bienvenido!</h1>                           
                                     <form method="post" class="user">
-                                        {% csrf_token %}
+                                        {% csrf_token %}                           
                                         <div class="form-group mb-3">
-                                            <label for="user" class="form-label">
-                                                <input type="text" name="username" class="form-control form-control-user" placeholder="Username" aria-label="Username">
+                                            <label for="id_username" class="form-label">
+                                                <input type="text" name="username" class="form-control form-control-user" placeholder="Usuario" aria-label="Username" required id="id_username">
                                             </label>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="pass" class="form-label">
-                                                <input type="password" name="password" class="form-control form-control-user" placeholder="Password" aria-label="Password">
+                                            <label for="id_password" class="form-label">
+                                                <input type="password" name="password" class="form-control form-control-user" placeholder="Contraseña" aria-label="Password" required id="id_password">
                                             </label>
                                         </div>
                                         <div class="form-group btn">
                                             <button type="submit" class="btn btn-primary">Ingresar</button>
                                         </div>
+                                        {% if form.errors %}
+                                            <p class="validation-summary-errors">Porfavor ingrese un usuario y contraseña valido.</p>
+                                        {% endif %}
                                         <div class="form-group btn mb-3">
                                             <a class="btn btn-success" href="{% url 'registro' %}">Registrarse</a>
-                                            <!-- <button class="btn btn-success"><a href="">Registrarse</a></button> -->
                                         </div>
                                         <div class="mb-3">
-                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0" href="{% url 'index' %}">Página principal</a>
+                                            <a class="link-body-emphasis link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'index' %}">Página principal</a>
                                         </div>
                                     </form>
                                 </div>
@@ -50,7 +52,7 @@
         </div>
     </div>
 
-
+    <script src="{% static 'tienda/js/login.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>

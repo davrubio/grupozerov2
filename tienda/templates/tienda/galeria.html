@@ -36,12 +36,16 @@
             <input hidden value="{{picture.precio}}">
             <span>${{picture.precio}}</span>
             <br>
-            <!-- <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito btn-carrito">Agregar al
-              carrito</button> -->
-            <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosEdit' id=picture.id_cuadro %}">Editar</a>
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosDelete' id_cuadro=picture.id_cuadro %}">Eliminar</a>
-            </button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito btn-carrito">Agregar al
+              carrito</button>
+            {% if perms.tienda.change_cuadro %}
+              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosEdit' id=picture.id_cuadro %}">Editar</a>
+              </button>
+            {% endif %}
+            {% if perms.tienda.delete_cuadro %}
+              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosDelete' id_cuadro=picture.id_cuadro %}">Eliminar</a>
+              </button>
+            {% endif %}
           </div>
         </div>
       </section>

@@ -10,24 +10,28 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Inicio</a>
                 </li>
+                {% if perms.tienda.view_carrito %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'carro' %}">Carro</a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="carro.html">Compras</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
+                {% if perms.tienda.add_cuadro %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'cuadrosAdd' %}">Agregar Cuadro</a>
                 </li>
+                {% endif %}
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'poster_customer' %}">Crea tu poster</a>
                 </li> -->
