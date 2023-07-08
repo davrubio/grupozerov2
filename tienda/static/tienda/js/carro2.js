@@ -137,3 +137,7 @@ function sumar(e) {
     })
     console.log(carrito);
 }
+
+$("#montoConv").inputmask({
+    mask: "$[999.999.999]"
+});

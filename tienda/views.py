@@ -40,6 +40,7 @@ def carro(request):
     }
     return render(request, 'tienda/carro.html', context)    
 
+# @permission_required('tienda.view_carrito')
 def carro2(request):
     cuadros = Cuadro.objects.all()
     context = {

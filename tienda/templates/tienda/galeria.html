@@ -36,14 +36,15 @@
             <input hidden value="{{picture.precio}}">
             <span>${{picture.precio}}</span>
             <br>
-            <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito btn-carrito">Agregar al
-              carrito</button>
+            {% if perms.tienda.view_carrito %}
+            <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito btn-carrito"><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-white" href="{% url 'carro2' %}">Ir al carrito</a></button>
+            {% endif %}
             {% if perms.tienda.change_cuadro %}
-              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosEdit' id=picture.id_cuadro %}">Editar</a>
+              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-white" href="{% url 'cuadrosEdit' id=picture.id_cuadro %}">Editar</a>
               </button>
             {% endif %}
             {% if perms.tienda.delete_cuadro %}
-              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a href="{% url 'cuadrosDelete' id_cuadro=picture.id_cuadro %}">Eliminar</a>
+              <button type="button" class="btn btn-secondary btn-lg btn-block btn-carrito"> <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-white" href="{% url 'cuadrosDelete' id_cuadro=picture.id_cuadro %}">Eliminar</a>
               </button>
             {% endif %}
           </div>
