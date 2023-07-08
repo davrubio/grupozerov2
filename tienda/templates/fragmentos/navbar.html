@@ -10,6 +10,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Inicio</a>
                 </li>
+                {% if perms.tienda.view_carrito %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'carro2' %}">Carro</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
                 </li>
@@ -17,15 +22,13 @@
                     <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'carro2' %}">Carrito</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
+                {% if perms.tienda.add_cuadro %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'cuadrosAdd' %}">Agregar Cuadro</a>
                 </li>
-                
+                {% endif %} 
             </ul>
             
             <ul class="navbar-nav justify-content-md-end">
@@ -41,8 +44,6 @@
                         <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
                     </li>
                 {% endif %}
-                <!-- <button class="btn btn-dark"><a class="nav-link" href="">usuario</a></button>
-                <button class="btn btn-dark"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></button> -->
             </ul>
         </div>
     </div>

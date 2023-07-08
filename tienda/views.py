@@ -4,14 +4,7 @@ from .forms import CuadroForm
 from tienda.models import Cuadro
 import urllib.request
 import json
-
-# Create your views here.
-# def index(request):
-#     context = {}
-#     return render(request, 'tienda/index.html')
-
-
-
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 def index(request):
@@ -39,7 +32,7 @@ def galeria(request):
     }
     return render(request, 'tienda/galeria.html', context)
 
-
+#@login_required
 def carro(request):
     cuadros = Cuadro.objects.all()
     context = {
@@ -80,7 +73,7 @@ def poke(request):
 
     return render(request, 'tienda/poster_customer.html', data)    
 
-
+@permission_required('tienda.add_cuadro')
 def cuadrosAdd(request):
     context = {
         'form': CuadroForm()
@@ -108,6 +101,7 @@ def posterAdd(request, nombre, foto, number):
 
     return render(request, 'tienda/posterAdd.html', context)
 
+@permission_required('tienda.change_cuadro')
 def cuadrosEdit(request,id):
     cuadro = Cuadro.objects.get(id_cuadro = id)
     context = {
@@ -123,6 +117,7 @@ def cuadrosEdit(request,id):
 
     return render(request, 'tienda/cuadrosEdit.html', context)
 
+@permission_required('tienda.delete_cuadro')
 def cuadrosDelete(request, id_cuadro):
     cuadro = Cuadro.objects.get(id_cuadro = id_cuadro)
     cuadro.delete()
