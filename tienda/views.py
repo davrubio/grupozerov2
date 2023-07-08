@@ -47,6 +47,13 @@ def carro(request):
     }
     return render(request, 'tienda/carro.html', context)    
 
+def carro2(request):
+    cuadros = Cuadro.objects.all()
+    context = {
+        'cuadros': cuadros
+    }
+    return render(request, 'tienda/carro2.html', context) 
+
 def poke(request):
     if request.method == 'POST':
         pokemon = request.POST['pokemon'].lower()

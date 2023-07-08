@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'tienda/css/index.css' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Grupo Zero</title>
+</head>
+
+<body>
+    <header style="margin-bottom:5%;">
+        {% include 'fragmentos/navbar.html' %}
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 p-5">
+                <table class="table">
+                    <thead>
+                        <tr class="text-primary">
+                            <th scope="col">#</th>
+                            <th scope="col">Pintura</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <!-- <th scope="col"></th> -->
+                        </tr>
+                    </thead>
+                    <tbody table-light text-center align-content-center justify-content-center align-items-center>
+                        <tbody class="">
+                        {% for picture in cuadros %}
+                        <tr class="test2">
+                            <th class="id" scope="row">{{picture.id_cuadro}}</th>
+                            <td class="table__productos">
+                                <img class="img" src="{{picture.imagen.url}}" alt="No disponible">
+                                <h6 class="title">{{picture.titulo}}</h6>
+                                <h6 hidden class="artista">{{picture.artista}}</h6>
+                            </td>
+                            <td class="table__price">
+                                <span class="precio">{{picture.precio}}</span>
+                            </td>
+                            <td class="table__cantidad">
+                                <!-- <input type="number" min="1" value="1">
+                                <button class="delete btn btn-danger">X</button> -->
+                                <br>
+                                <button class="button btn btn-success">Agregar al carro </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+
+
+
+
+
+        <section class="h-100 h-custom">
+            <div class="container h-100 py-5">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card shopping-cart" style="border-radius: 15px;">
+                            <div class="card-body text-black">
+
+                                <div class="row">
+
+                                    <div class="col-lg-6 px-5 py-4 ">
+                                        <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Tus productos</h3>
+                                        <div class="tbody">
+                                            
+                                            
+                                        </div>
+
+                                        <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+
+                                        <div class="d-flex justify-content-between p-2 mb-2"
+                                            style="background-color: #e1f5fe;">
+                                            <h5 class="fw-bold mb-0">Total:</h5>
+                                            <h5 class="itemCartTotal fw-bold mb-0">0</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 px-5 py-4">
+                                        <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Método de pago</h3>
+                                        <form class="mb-5">
+                                            <div class="form-outline mb-5">
+                                                <input type="text" id="typeText" class="form-control form-control-lg"
+                                                    siez="17" value="1234 5678 9012 3457" minlength="19"
+                                                    maxlength="19" />
+                                                <label class="form-label" for="typeText">Número de tarjeta</label>
+                                            </div>
+
+                                            <div class="form-outline mb-5">
+                                                <input type="text" id="typeName" class="form-control form-control-lg"
+                                                    siez="17" value="John Smith" />
+                                                <label class="form-label" for="typeName">Nombre del titular</label>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 mb-5">
+                                                    <div class="form-outline">
+                                                        <input type="text" id="typeExp"
+                                                            class="form-control form-control-lg" value="01/22" size="7"
+                                                            id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Vencimiento</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-5">
+                                                    <div class="form-outline">
+                                                        <input type="password" id="typeText"
+                                                            class="form-control form-control-lg"
+                                                            value="&#9679;&#9679;&#9679;" size="1" minlength="3"
+                                                            maxlength="3" />
+                                                        <label class="form-label" for="typeText">Cvv</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mb-5">Realizando la compra usted está aceptando los
+                                                <a href="#!">Terminos de contrato</a>.
+                                            </p>
+
+                                            <button type="button" class="btn btn-primary btn-block btn-lg">Buy
+                                                now</button>
+
+                                            <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
+                                            </h5>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- 
+        <br><br>
+        <div class="row mx-4">
+            <div class="col">
+                <h3 class="itemCartTotal">Total: 0</h3>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <button class="btn btn-success">COMPRAR</button>
+            </div>
+        </div> -->
+
+
+
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'tienda/js/carro2.js' %}"></script>
+</body>
+
+</html>
