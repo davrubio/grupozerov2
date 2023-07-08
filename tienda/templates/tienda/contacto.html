@@ -12,83 +12,63 @@
     <link rel="stylesheet" href="{% static 'tienda/css/index.css' %}">
 </head>
 
-<body class="w-75">
+<body>
 <header style="margin-bottom:5%;">
     {% include 'fragmentos/navbar.html' %}
 </header>
-<div class="container-fluid">
-    <form class="pt-5">
+<div class="container">
+    <form>
         <div class="row">
-            <div class="col-lg-2"></div>
-
-            <div class="col-lg-8 col-md-12 text-center">
+            <div class="col-lg-12 col-md-12 text-center pb-5">
                 <h1 class="textAliCenter">Completa el formulario de contacto</h1>
             </div>
-
-            <div class="col-lg-2"></div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-md-0"></div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12">
-
+        <div class="row justify-content-center">            
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                           placeholder="correo@ejemplo.cl">
+                            placeholder="correo@ejemplo.cl">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="form-group">
                     <label for="nombre">Nombre y apellido</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Juan Perez">
                 </div>
             </div>
-            <div class="col-lg-2 col-md-0"></div>
         </div>
-
-        <div class="row" style="margin-top:3%">
-            <div class="col-xl-2 col-lg-0"></div>
-            <div class="col-xl-8 col-lg-12">
+        <div class="row justify-content-center" style="margin-top:3%">
+            <div class="col-xl-6 col-lg-12">
                 <div class="form-group">
                     <label for="direccion">Dirección</label>
                     <input type="text" class="form-control" id="direccion" placeholder="Avenida SiempreBuena123">
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-0"></div>
         </div>
-
-        <div class="row" style="margin-top:3%">
-            <div class="col-xl-2 col-lg-0"></div>
-            <div class="col-xl-8 col-lg-12">
+        <div class="row justify-content-center" style="margin-top:3%">
+            <div class="col-xl-6 col-lg-12">
                 <div class="form-group">
                     <label for="mensaje">Mensaje</label>
                     <textarea class="form-control" id="mensaje" rows="4"></textarea>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-0"></div>
         </div>
-        <div class="row">
-            <div class="col-lg-4"></div>
+        <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="d-grid py-5 gap-2">
-                    <button class="btn btn-primary" type="button">Button</button>
+                    <button class="btn btn-primary" type="button">Enviar</button>
                 </div>
             </div>
-            <div class="col-lg-4"></div>
         </div>
         <!-- <button type="submit" onclick="enviarFormulario()" value="Enviar"> -->
     </form>
-    <div class="row">
-        <div class="col-lg-4 col-md-2"></div>
+    <div class="row justify-content-center">
         <div class="col-lg-4 col-md-8">
             <div id="error"></div>
         </div>
-        <div class="col-lg-4 col-md-2"></div>
     </div>
 </div>
 

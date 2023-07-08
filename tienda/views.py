@@ -6,14 +6,6 @@ import urllib.request
 import json
 from django.contrib.auth.decorators import login_required, permission_required
 
-# Create your views here.
-# def index(request):
-#     context = {}
-#     return render(request, 'tienda/index.html')
-
-
-
-
 
 def index(request):
     cuadros = Cuadro.objects.all()
